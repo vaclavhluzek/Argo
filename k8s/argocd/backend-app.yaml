@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: backend-app
+  namespace: argocd
+spec:
+  project: default
+  source:
+    # Replace with your Git repository URL if you're using Git
+    # For this example, we'll use a directory path
+    repoURL: https://hluzek0882@dev.azure.com/hluzek0882/hluzek/_git/argoapp1  # Replace with your repo
+    targetRevision: HEAD
+    path: k8s/backend
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+      allowEmpty: false
+    syncOptions:
+    - CreateNamespace=true
