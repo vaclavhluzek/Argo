@@ -8,12 +8,12 @@ spec:
   source:
     # Replace with your Git repository URL if you're using Git
     # For this example, we'll use a directory path
-    repoURL: https://hluzek0882@dev.azure.com/hluzek0882/hluzek/_git/argoapp1  # Replace with your repo
+    repoURL: https://github.com/vaclavhluzek/Argo.git # Replace with your repo
     targetRevision: HEAD
     path: k8s/backend
   destination:
     server: https://kubernetes.default.svc
-    namespace: default
+    namespace: argotest
   syncPolicy:
     automated:
       prune: true
