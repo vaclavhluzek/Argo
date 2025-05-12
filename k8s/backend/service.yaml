@@ -3,10 +3,12 @@ kind: Service
 metadata:
   name: backend-app
   namespace: argotest
+  annotations:
+    service.beta.kubernetes.io/azure-load-balancer-internal: "false"
 spec:
   selector:
     app: backend-app
   ports:
   - port: 80
     targetPort: 8080
-  type: ClusterIP
+  type: LoadBalancer
