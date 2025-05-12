@@ -6,7 +6,7 @@ metadata:
   labels:
     app: backend-app
 spec:
-  replicas: 2  # As requested, two replicas
+  replicas: 3  # As requested, two replicas
   selector:
     matchLabels:
       app: backend-app
